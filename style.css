@@ -1,0 +1,13 @@
+.swiper {
+  width: 70%;
+}
+.swiper-slide {
+  outline: 1px solid tomato;
+  width: 300px !important;
+  height: 300px !important;
+}
+/* 
+iframe {
+  width: 300px !important;
+  height: 300px !important;
+} */
