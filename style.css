@@ -1,13 +1,18 @@
 .swiper {
-  width: 70%;
+  width: 1230px;
+  display: flex;
+  justify-content: space-around;
+
 }
 .swiper-slide {
   outline: 1px solid tomato;
-  width: 300px !important;
-  height: 300px !important;
+  width: 300px!important;
 }
-/* 
-iframe {
-  width: 300px !important;
-  height: 300px !important;
-} */
+
+.swiper-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 1px solid blue;
+  width: 100%;
+}

@@ -1,16 +1,20 @@
 import Swiper from "swiper";
 import { Navigation } from "swiper/modules";
 
-import 'swiper/css';
+import "swiper/css";
 
 const swiper = new Swiper(".swiper", {
-  speed: 650,
-  // initialSlide: ,
-  slidesPerView: 3,
-  spaceBetween: 25,
-  // centeredSlides:true,
+  slidesPerView: 4,
+  initialSlide:-1,
+  spaceBetween: 10,
+  speed: 800,
+  // autoHeight:true,
+  clickable: true,
+  // watchOverflow: true,
+  centeredSlides:false,
   loop: true,
   // lazyPreloadPrevNext:4,
+  // effect: "creative",
 
   modules: [Navigation],
   navigation: {
@@ -19,21 +23,8 @@ const swiper = new Swiper(".swiper", {
   },
   lazy: {
     loadPrevNext: true, // pre-loads the next image to avoid showing a loading placeholder if possible
-    loadPrevNextAmount: 4 //or, if you wish, preload the next 2 images
+    loadPrevNextAmount: 4, //or, if you wish, preload the next 2 images
   },
 });
 
-const preloadNext = (n) => {
-  swiper
-    .slides
-    .slice(swiper.activeIndex, swiper.activeIndex + n + 1)
-    .map(slide => Array.from(slide.querySelectorAll('iframe'))) // Преобразуем NodeList в массив
-    .flat() // Преобразуем массив массивов iframe в один массив
-    .forEach(iframe => iframe.setAttribute('loading', 'eager')); // Устанавливаем атрибут loading='eager' для каждого iframe
-};
-
-// preload the next 2 images immediately
-preloadNext(2);
-
-// preload the next 2 images after changing slides
-swiper.on('slideChange', () => preloadNext(2));
+swiper.autoplay()
