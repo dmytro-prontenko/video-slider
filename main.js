@@ -20,9 +20,6 @@ const swiper = new Swiper(".swiper", {
     prevEl: ".swiper-button-prev",
   },
   lazy: {
-    loadPrevNext: true, // pre-loads the next image to avoid showing a loading placeholder if possible
-    // loadPrevNextAmount: 1, //or, if you wish, preload the next 2 images
+    loadPrevNext: true,
   },
 });
-
-// swiper.autoplay()
