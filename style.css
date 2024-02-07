@@ -5,14 +5,15 @@
 
 }
 .swiper-slide {
-  outline: 1px solid tomato;
-  width: 300px!important;
+    display: flex!important;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .swiper-wrapper {
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
-  outline: 1px solid blue;
-  width: 100%;
+  width: 100%; */
 }
