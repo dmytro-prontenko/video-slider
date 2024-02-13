@@ -2,18 +2,16 @@
   width: 1230px;
   display: flex;
   justify-content: space-around;
-
 }
 .swiper-slide {
-    display: flex!important;
+  display: flex !important;
   justify-content: center;
   align-items: center;
   width: 100%;
+  & img:hover {
+    cursor: pointer;
+  }
 }
-
-.swiper-wrapper {
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%; */
-}
+/* .swiper-slide img:hover {
+  cursor: pointer;
+} */
