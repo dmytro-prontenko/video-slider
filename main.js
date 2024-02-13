@@ -57,7 +57,8 @@ async function getVideo() {
           id="${i}"
           src="${response.pictures.base_link}"
           width=300
-          height=300>` +
+          height=300
+          >` +
           slideEndTag;
       }
       videoContainer.insertAdjacentHTML("afterbegin", htmlToInsert);
@@ -67,21 +68,39 @@ async function getVideo() {
         slide.addEventListener("click", () => {
           const modal = document.getElementById("myModal");
           modal.style.display = "block";
+          const modalContent = document.querySelector("#modal-content");
+          modalContent.innerHTML = response.embed.html;
+
+          const iframe = document.querySelector("iframe");
+          iframe.width = "500px";
+          iframe.height = "500px!important";
+          iframe.setAttribute("allow", "autoplay");
+          iframe.autoplay = 1;
+
+          // iframe.addEventListener("load", () => {
+          //   iframe.contentWindow.postMessage(
+          //     '{"method":"play"}',
+          //     iframe.src.split("/")[0] + "//" + iframe.src.split("/")[2]
+          //   );
+          // });
 
           window.addEventListener("keydown", (e) => {
             if (e.key === "Escape") {
+              stopVideo(iframe);
               modal.style.display = "none";
             }
           });
 
           modal.addEventListener("click", (e) => {
             if (e.target === modal) {
+              stopVideo(iframe);
               modal.style.display = "none";
             }
           });
 
           const closeBtn = document.querySelector(".close");
           closeBtn.addEventListener("click", () => {
+            stopVideo(iframe);
             modal.style.display = "none";
           });
         });
@@ -98,4 +117,9 @@ getVideo();
 
 function printError(error) {
   console.error("Error occurred:", error);
+}
+
+function stopVideo(iframe) {
+  const iframeSrc = iframe.src;
+  iframe.src = iframeSrc;
 }
